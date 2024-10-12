@@ -1,39 +1,40 @@
-# - name: check a number is less than 10 or not
-  # hosts: local
-  # connection: local
-  # vars_prompt:
-  # - name: my_number
-    # prompt: Please enter the number
-    # private: false # not confidential
-  # vars:
-    # my_number: 139 # number
-  # tasks:
-  # - name: print this if less than 10
-    # ansible.builtin.debug:
-      # msg: "Given number {{ my_number }} is less than 10"
-    # when: my_number | int < 10 # conditional expression
-# 
-  # - name: print this if greater than or equal to 10
-    # ansible.builtin.debug:
-      # msg: "Given number {{ my_number }} greater than or equal to 10"
-    # when: my_number | int >= 10
-# 
-
-
-- name: check a number less than 10 or not
+- name: check a number is less than 10 or not
   hosts: local
   connection: local
   vars_prompt:
   - name: my_number
-    prompt: please enter the number
-    private: false 
+    prompt: Please enter the number
+    private: false # not confidential
+  vars:
+    my_number: 139 # number
   tasks:
   - name: print this if less than 10
     ansible.builtin.debug:
       msg: "Given number {{ my_number }} is less than 10"
-    when: my_number | int < 10
+    when: my_number | int < 10 # conditional expression
 
   - name: print this if greater than or equal to 10
-    ansible.bulitin.debug:
-      msg: "Given number {{ my_number}} is greater than or equal to 10"
-    when: my_number | int >= 10      
+    ansible.builtin.debug:
+      msg: "Given number {{ my_number }} greater than or equal to 10"
+    when: my_number | int >= 10
+
+
+
+# - name: check a number less than 10 or not
+  # hosts: local
+  # connection: local
+  # vars_prompt:
+  # - name: my_number
+    # prompt: please enter the number
+    # private: false 
+  # tasks:
+  # - name: print this if less than 10
+    # ansible.builtin.debug:
+      # msg: "Given number {{ my_number }} is less than 10"
+    # when: my_number | int < 10
+# 
+  # - name: print this if greater than or equal to 10
+    # ansible.bulitin.debug:
+      # msg: "Given number {{ my_number}} is greater than or equal to 10"
+    # when: my_number | int >= 10      
+# 
