@@ -11,14 +11,14 @@
     vars:
       greeting: "Hello vishnu"
     ansible.builtin.debug:
-      msg: " {{ greeting | upper }}"
+      msg: " upper: {{ greeting | upper }}, lower: {{ greetings | lower}}"
 
-  - name: convert to lowercase
-    vars:
-      greeting: "hi sehwag"
-    ansible.builtin.debug:
-      msg: " {{ greeting | lower }}"
-  
+  # - name: convert to lowercase
+    # vars:
+      # greeting: "hi sehwag"
+    # ansible.builtin.debug:
+      # msg: " {{ greeting | lower }}"
+  # 
   # - name: get the unique values
     # vars:
       # numbers: [1,2,3,45,4,3,2]
