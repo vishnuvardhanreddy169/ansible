@@ -7,50 +7,56 @@
       msg: "Hello {{ course | default('Ansible') }}"
 
 
-  - name: convert to uppercase
+  - name: convert to uppercase 
     vars:
       greeting: "Hello vishnu"
     ansible.builtin.debug:
-      msg: " upper: {{ greeting | upper }}, lower: {{ greeting | lower}}"
+      msg: " {{ greeting | upper }}"
 
-  # - name: convert to lowercase
-    # vars:
-      # greeting: "hi sehwag"
-    # ansible.builtin.debug:
-      # msg: " {{ greeting | lower }}"
-  # 
-  # - name: get the unique values
-    # vars:
-      # numbers: [1,2,3,45,4,3,2]
-    # ansible.builtin.debug:
-      # msg: " {{ numbers | unique }}"
+  - name: convert to lowercase
+    vars:
+      greeting: "hi sehwag"
+    ansible.builtin.debug:
+      msg: " {{ greeting | lower }}"
 
-  # - name: get the min and max
-    # vars:
-      # numbers: [1,2,3,45,4,3,2]
-    # ansible.builtin.debug:
-      # msg: " Min: {{ numbers | min }}, Max: {{ numbers | max }}"
+    name: convert to uppercase and lower
+    vars:
+      greeting: "Hello vishnu"
+    ansible.builtin.debug:
+      msg: " upper: {{ greeting | upper }}, lower: {{ greeting | lower}}"  
+  
+  - name: get the unique values
+    vars:
+      numbers: [1,2,3,45,4,3,2]
+    ansible.builtin.debug:
+      msg: " {{ numbers | unique }}"
 
-  # - name: convert map to list
-    # vars:
-      # course:
-        # name: "DevOps with AWS"
-        # duration: 120
-        # trainer: "sivakumar reddy"
-    # ansible.builtin.debug:
-      # msg: "{{ course | dict2items }}"
+  - name: get the min and max
+    vars:
+      numbers: [1,2,3,45,4,3,2]
+    ansible.builtin.debug:
+      msg: " Min: {{ numbers | min }}, Max: {{ numbers | max }}"
 
-  # - name: convert list to map
-    # vars:
-      # course:
-      # - { "key": "name","value": "DevOps with AWS" }
-      # - { "key": "duration","value": 120 }
-      # - { "key": "trainer","value": "sivakumar reddy" }
-    # ansible.builtin.debug:
-      # msg: "{{ course | items2dict }}"
+  - name: convert map to list
+    vars:
+      course:
+        name: "DevOps with AWS"
+        duration: 120
+        trainer: "sivakumar reddy"
+    ansible.builtin.debug:
+      msg: "{{ course | dict2items }}"
 
-  # - name: check ip address
-    # vars:
-      # myip: "356.168.1.1"
-    # ansible.builtin.debug:
-      # msg: "{{ myip | ansible.utils.ipv4 }}"    
+  - name: convert list to map
+    vars:
+      course:
+      - { "key": "name","value": "DevOps with AWS" }
+      - { "key": "duration","value": 120 }
+      - { "key": "trainer","value": "sivakumar reddy" }
+    ansible.builtin.debug:
+      msg: "{{ course | items2dict }}"
+
+  - name: check ip address
+    vars:
+      myip: "156.168.1.1"
+    ansible.builtin.debug:
+      msg: "{{ myip | ansible.utils.ipv4 }}"    
